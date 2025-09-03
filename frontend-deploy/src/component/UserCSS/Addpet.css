@@ -1,0 +1,103 @@
+/* Addpet.css */
+
+.container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4rem;
+    padding-left: 18rem;
+}
+
+.form-container {
+    max-width: 30rem; /* 448px */
+    width: 100%;
+    padding: 1.5rem;
+    border: 1px solid rgb(8, 8, 8);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 1.25rem;
+    background-color: rgba(255, 255, 255, 0.9); /* Lighten background for readability */
+    backdrop-filter: blur(10px);
+}
+
+.title {
+    margin-bottom: 0.5rem;
+    font-size: 1.875rem; /* 3xl */
+    font-weight: bold;
+    text-align: center;
+    color: transparent;
+    background: linear-gradient(90deg, rgb(30, 64, 175) 0%, rgb(59, 130, 246) 35%, rgb(96, 165, 250) 50%, rgb(59, 130, 246) 65%, rgb(30, 64, 175) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+.error-msg {
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 0.875rem; /* sm */
+    color: #1e3a8a; /* blue-900 */
+    background-color: rgba(59, 130, 246, 0.1); /* blue-500/10 */
+    backdrop-filter: blur(10px);
+    border: 1px solid #60a5fa; /* blue-400 */
+    border-radius: 0.375rem; /* rounded */
+}
+
+.form-group {
+    margin-bottom: 1.5rem; /* Increased spacing for readability */
+}
+
+.label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 1rem; /* Larger font size for better readability */
+    font-weight: 600; /* bold for better visibility */
+    color: #000000; /* Changed to black for better contrast */
+}
+
+.input,
+.textarea {
+    width: 100%;
+    padding: 0.75rem 1rem; /* Increased padding for better user experience */
+    border: 1px solid rgba(0, 0, 0, 0.1); /* Slightly darker border for contrast */
+    border-radius: 0.375rem; /* rounded-md */
+    background-color: rgba(255, 255, 255, 0.8); /* Slightly lighter background for better contrast */
+    backdrop-filter: blur(10px);
+    color: #333; /* Darker text for better readability */
+    outline: none;
+}
+
+.input:focus,
+.textarea:focus {
+    outline-width: 2px;
+    border-color: #3b82f6; /* blue-500 */
+    border-color: transparent;
+}
+
+.input::placeholder,
+.textarea::placeholder {
+    color: rgba(0, 0, 0, 0.5); /* Dark placeholder text for better contrast */
+}
+
+.textarea {
+    resize: none;
+}
+
+.button {
+    width: 100%;
+    padding: 0.75rem 1rem; /* Increased padding for readability */
+    font-weight: 600; /* font-semibold */
+    color: white;
+    transition: all 0.3s;
+    background-color: rgba(59, 130, 246, 0.8); /* blue-500/80 */
+    backdrop-filter: blur(10px);
+    border-radius: 0.375rem; /* rounded-md */
+}
+
+.button:hover {
+    background-color: rgba(37, 99, 235, 0.9); /* blue-600/90 */
+}
+
+.button:focus {
+    border-width: 2px;
+    lighting-color: #3b82f6; /* blue-500 */
+}
