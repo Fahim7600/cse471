@@ -18,8 +18,9 @@ const io = new Server(server, {
             'https://cse471-dtjw.vercel.app',
             'https://cse471-three.vercel.app'
         ],
-        methods: ['GET', 'POST'],
-        credentials: true
+        methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+        credentials: true,
+        allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With']
     }
 });
 
@@ -29,9 +30,13 @@ app.use(cors({
         'http://localhost:5173', 
         'http://localhost:5174',
         'https://cse471-dtjw.vercel.app',
-        'https://cse471-three.vercel.app'
+        'https://cse471-three.vercel.app',
+        'https://cse471-dtjw.vercel.app',
+        'https://cse471-dtjw.vercel.app'
     ], // Allow both localhost and Vercel domains
-    credentials: true // Allow cookies (sessions) to be sent
+    credentials: true, // Allow cookies (sessions) to be sent
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With']
 }));
 // app.use(cors());
 
@@ -55,9 +60,10 @@ app.use(session({
     resave: false,
     saveUninitialized: false,
     cookie: {
-        secure: false, // set to true in production with HTTPS
+        secure: process.env.NODE_ENV === 'production', // true in production with HTTPS
         httpOnly: true,
-        maxAge: 1000 * 60 * 30 // 30 minutes
+        maxAge: 1000 * 60 * 30, // 30 minutes
+        sameSite: 'none' // Allow cross-site cookies
     }
 }));
 
@@ -364,4 +370,23 @@ server.on('error', (error) => {
     } else {
         console.error('❌ Server error:', error);
     }
+});
+
+// Global error handling middleware
+app.use((err, req, res, next) => {
+    console.error('❌ API Error:', err);
+    res.status(500).json({
+        error: 'Internal Server Error',
+        message: err.message,
+        timestamp: new Date().toISOString()
+    });
+});
+
+// 404 handler for undefined routes
+app.use('*', (req, res) => {
+    res.status(404).json({
+        error: 'Route Not Found',
+        message: `Cannot ${req.method} ${req.originalUrl}`,
+        timestamp: new Date().toISOString()
+    });
 });
