@@ -97,7 +97,7 @@ app.get('/railway-status', (req, res) => {
 });
 
 // Routes
-app.use('/', require('./routes/authRoutes'));
+app.use('/auth', require('./routes/authRoutes'));
 
 app.get('/', (req, res) => {
     res.json({ 
@@ -109,22 +109,20 @@ app.get('/', (req, res) => {
 });
 
 // adoption
-app.use('/', require('./routes/adoptionRoutes'));
+app.use('/adoption', require('./routes/adoptionRoutes'));
 
-
-app.use('/', require('./routes/petRoutes'));
+app.use('/pets', require('./routes/petRoutes'));
 
 const notificationRoutes = require('./routes/Notification');
 app.use('/api/notifications', notificationRoutes);
 const lostorfoundRoutes = require('./routes/lostorfoundRoutes');
-app.use('/', lostorfoundRoutes);
+app.use('/lost-found', lostorfoundRoutes);
 
-app.use('/', require('./routes/profileRoutes'));
-// app.use('/api/user', require('./routes/profileRoutes'));
+app.use('/profile', require('./routes/profileRoutes'));
 
 app.use('/api/reviews', require('./routes/reviewRoutes')); //rupom
 
-app.use('/', require('./routes/dashboardRoutes'));
+app.use('/dashboard', require('./routes/dashboardRoutes'));
 app.use((req, res, next) => {
     if (req.session.userId) {
         req.session.cookie.maxAge = 30 * 60 * 1000; // 30 minutes
@@ -142,7 +140,7 @@ const chatRoutes = require('./routes/chatRoutes');
 app.use('/api', chatRoutes);
 
 // User info route
-app.get('/user-info', (req, res) => {
+app.get('/api/user-info', (req, res) => {
     if (!req.session.userId) {
         return res.status(401).json({ message: 'User not authenticated' });
     }
@@ -383,7 +381,7 @@ app.use((err, req, res, next) => {
 });
 
 // 404 handler for undefined routes
-app.use('*', (req, res) => {
+app.use('/*', (req, res) => {
     res.status(404).json({
         error: 'Route Not Found',
         message: `Cannot ${req.method} ${req.originalUrl}`,
