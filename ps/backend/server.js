@@ -74,6 +74,18 @@ app.get('/health', (req, res) => {
     res.json({ 
         status: 'OK', 
         message: 'Server is running',
+        port: process.env.PORT || 3000,
+        timestamp: new Date().toISOString()
+    });
+});
+
+// Railway status route
+app.get('/railway-status', (req, res) => {
+    res.json({
+        status: 'OK',
+        environment: process.env.NODE_ENV || 'development',
+        port: process.env.PORT || 3000,
+        railway: true,
         timestamp: new Date().toISOString()
     });
 });
@@ -327,9 +339,24 @@ app.set('io', io);
 
 // Start Server
 const PORT = process.env.PORT || 3000;
+console.log(`Attempting to start server on port: ${PORT}`);
+console.log(`Environment PORT: ${process.env.PORT}`);
+console.log(`Fallback PORT: 3000`);
+
 server.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
+    console.log(`✅ Server successfully running on port ${PORT}`);
+    console.log(`🌐 Server accessible at: http://localhost:${PORT}`);
     // Start the reminder service
     startReminderService();
     console.log('Reminder service started');
+});
+
+// Handle server errors
+server.on('error', (error) => {
+    if (error.code === 'EADDRINUSE') {
+        console.error(`❌ Port ${PORT} is already in use`);
+        console.error('Please try a different port or kill the process using this port');
+    } else {
+        console.error('❌ Server error:', error);
+    }
 });
