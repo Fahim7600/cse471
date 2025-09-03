@@ -96,7 +96,7 @@ app.get('/railway-status', (req, res) => {
     });
 });
 
-// Routes
+// Routes - Mount with proper prefixes to avoid conflicts
 app.use('/auth', require('./routes/authRoutes'));
 
 app.get('/', (req, res) => {
@@ -108,36 +108,31 @@ app.get('/', (req, res) => {
     });
 });
 
-// adoption
+// Mount all other routes with clear prefixes
 app.use('/adoption', require('./routes/adoptionRoutes'));
-
 app.use('/pets', require('./routes/petRoutes'));
-
-const notificationRoutes = require('./routes/Notification');
-app.use('/api/notifications', notificationRoutes);
-const lostorfoundRoutes = require('./routes/lostorfoundRoutes');
-app.use('/lost-found', lostorfoundRoutes);
-
 app.use('/profile', require('./routes/profileRoutes'));
-
-app.use('/api/reviews', require('./routes/reviewRoutes')); //rupom
-
 app.use('/dashboard', require('./routes/dashboardRoutes'));
+
+// API routes
+app.use('/api/notifications', require('./routes/Notification'));
+app.use('/api/reviews', require('./routes/reviewRoutes'));
+app.use('/api/chat', require('./routes/chatRoutes'));
+
+// Admin routes
+app.use('/admin', require('./routes/adminRoutes'));
+app.use('/admin', require('./routes/adminReviewRoutes'));
+
+// Lost and found routes
+app.use('/lost-found', require('./routes/lostorfoundRoutes'));
+
+// Session middleware
 app.use((req, res, next) => {
     if (req.session.userId) {
         req.session.cookie.maxAge = 30 * 60 * 1000; // 30 minutes
     }
     next();
 });
-
-const adminRoutes = require('./routes/adminRoutes');
-app.use('/admin', adminRoutes);
-
-const adminReviewRoutes = require('./routes/adminReviewRoutes');
-app.use('/admin', adminReviewRoutes);
-
-const chatRoutes = require('./routes/chatRoutes');
-app.use('/api', chatRoutes);
 
 // User info route
 app.get('/api/user-info', (req, res) => {
@@ -381,7 +376,7 @@ app.use((err, req, res, next) => {
 });
 
 // 404 handler for undefined routes
-app.use('/*', (req, res) => {
+app.use('*', (req, res) => {
     res.status(404).json({
         error: 'Route Not Found',
         message: `Cannot ${req.method} ${req.originalUrl}`,
