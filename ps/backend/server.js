@@ -12,7 +12,12 @@ const app = express();
 const server = createServer(app);
 const io = new Server(server, {
     cors: {
-        origin: ['http://localhost:5173', 'http://localhost:5174'],
+        origin: [
+            'http://localhost:5173', 
+            'http://localhost:5174',
+            'https://cse471-dtjw.vercel.app',
+            'https://cse471-three.vercel.app'
+        ],
         methods: ['GET', 'POST'],
         credentials: true
     }
@@ -20,7 +25,12 @@ const io = new Server(server, {
 
 
 app.use(cors({
-    origin: ['http://localhost:5173', 'http://localhost:5174'], // Allow both ports
+    origin: [
+        'http://localhost:5173', 
+        'http://localhost:5174',
+        'https://cse471-dtjw.vercel.app',
+        'https://cse471-three.vercel.app'
+    ], // Allow both localhost and Vercel domains
     credentials: true // Allow cookies (sessions) to be sent
 }));
 // app.use(cors());
@@ -58,6 +68,15 @@ app.use(session({
 mongoose.connect('mongodb+srv://petsphere:123@petsphere.tgznjun.mongodb.net/petsphere?retryWrites=true&w=majority&appName=petsphere')
 .then(() => console.log('MongoDB Connected'))
 .catch(err => console.log(err));
+
+// Health check route for Railway
+app.get('/health', (req, res) => {
+    res.json({ 
+        status: 'OK', 
+        message: 'Server is running',
+        timestamp: new Date().toISOString()
+    });
+});
 
 // Routes
 app.use('/', require('./routes/authRoutes'));
