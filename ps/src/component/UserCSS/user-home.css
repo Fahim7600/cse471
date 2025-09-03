@@ -1,0 +1,92 @@
+/* user-home.css */
+
+/* Background styles */
+.user-home {
+    padding: 20px;
+    /* Remove background-image since it's now global */
+}
+
+/* Welcome Back User - Top Right */
+.user-home .text-blue-600 {
+    color: #3182ce; /* Blue-600 */
+}
+
+/* Pet Dashboard */
+.pet-dashboard {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.pet-dashboard h2 {
+    font-size: 2rem;
+    color: #3182ce; /* Blue-600 */
+}
+
+.pet-dashboard p {
+    color: #2d3748; /* Dark text */
+}
+
+/* Add Pet Profile container */
+.add-pet-profile {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.add-pet-profile h2 {
+    font-size: 2rem;
+    color: #1a202c; /* Black */
+}
+
+.add-pet-profile p {
+    color: #2d3748; /* Dark text */
+}
+
+.add-pet-profile button {
+    background-color: #3182ce;
+    transition: background-color 0.3s ease;
+}
+
+.add-pet-profile button:hover {
+    background-color: #2b6cb0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    /* Adjust padding for small screens */
+    .user-home {
+        padding: 2rem;
+    }
+
+    .pet-dashboard h2 {
+        font-size: 1.5rem;
+    }
+
+    .add-pet-profile h2 {
+        font-size: 1.75rem;
+    }
+
+    .add-pet-profile {
+        width: 80%;
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Mobile screens */
+    .pet-dashboard h2 {
+        font-size: 1.25rem;
+    }
+
+    .add-pet-profile h2 {
+        font-size: 1.5rem;
+    }
+
+    .add-pet-profile {
+        width: 90%;
+        margin-top: 15px;
+    }
+}
