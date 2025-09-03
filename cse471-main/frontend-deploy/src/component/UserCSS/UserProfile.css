@@ -1,0 +1,163 @@
+.container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+/* Profile card with rounded corners and shadow */
+.profile-card {
+    width: 100%;
+    max-width: 600px; /* Increased width for larger screens */
+    padding: 2rem;
+    background-color: rgba(255, 255, 255, 0.85); /* Slightly transparent background */
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    margin: 1rem; /* Added margin for spacing */
+}
+
+/* Profile header */
+.profile-header {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.profile-header h1 {
+    font-size: 2.5rem; /* Increased text size for better readability */
+    font-weight: bold;
+    color: transparent;
+    background: linear-gradient(90deg, rgb(30, 64, 175) 0%, rgb(59, 130, 246) 35%, rgb(96, 165, 250) 50%, rgb(59, 130, 246) 65%, rgb(30, 64, 175) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    text-transform: capitalize;
+}
+
+/* Profile image styling */
+.profile-image {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.profile-image img {
+    object-fit: cover;
+    width: 12rem; /* Increased size */
+    height: 12rem; /* Increased size */
+    border-radius: 50%;
+    border: 0.25rem solid transparent;
+    background-image: linear-gradient(90deg, rgb(30, 64, 175) 0%, rgb(59, 130, 246) 35%, rgb(96, 165, 250) 50%, rgb(59, 130, 246) 65%, rgb(30, 64, 175) 100%);
+    background-clip: border-box;
+}
+
+/* Profile information styling */
+.profile-info {
+    margin-top: 1.5rem;
+    gap: 1rem; /* Space between sections */
+}
+
+/* Section titles (Name, Email, Contact) */
+.profile-info h2 {
+    font-size: 1.25rem; /* Larger font for titles */
+    font-weight: 600; /* Semi-bold for titles */
+    color: #333; /* Darker text for readability */
+    margin-bottom: 0.5rem;
+}
+
+/* Information text styling */
+.profile-info p {
+    font-size: 1.125rem; /* Slightly larger text */
+    color: #111827; /* black */
+}
+
+/* Document link styling */
+.document-link {
+    margin-top: 1.5rem;
+    text-align: center;
+}
+
+.document-link a {
+    color: #3b82f6; /* blue-500 */
+    text-decoration: underline;
+    transition: color 0.3s ease;
+}
+
+.document-link a:hover {
+    color: #16a34a; /* green-500 */
+}
+
+/* Edit button styling */
+.edit-button {
+    margin-top: 2rem;
+    width: 100%;
+    padding: 1rem 2rem; /* Increased padding */
+    background-color: rgb(59, 130, 246); /* blue-500 */
+    color: white;
+    border-radius: 0.375rem;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    text-align: center;
+    font-size: 1.125rem; /* Increased font size */
+}
+
+.edit-button:hover {
+    background-color: #2563eb; /* blue-600 */
+}
+
+/* Responsive styling */
+@media (max-width: 768px) {
+    .profile-card {
+        padding: 1.5rem; /* Reduced padding for smaller screens */
+    }
+
+    .profile-header h1 {
+        font-size: 2rem; /* Smaller title for mobile */
+    }
+
+    .profile-image img {
+        width: 8rem; /* Smaller profile picture for mobile */
+        height: 8rem; /* Smaller profile picture for mobile */
+    }
+
+    .profile-info h2 {
+        font-size: 1rem; /* Adjusted size for smaller screens */
+    }
+
+    .profile-info p {
+        font-size: 1rem; /* Adjusted size for smaller screens */
+    }
+
+    .edit-button {
+        font-size: 1rem; /* Smaller button text */
+        padding: 0.75rem 1.5rem; /* Adjusted button padding */
+    }
+}
+
+@media (max-width: 480px) {
+    .profile-card {
+        padding: 1rem; /* Reduced padding further for extra small screens */
+    }
+
+    .profile-header h1 {
+        font-size: 1.75rem; /* Smaller title */
+    }
+
+    .profile-image img {
+        width: 6rem; /* Even smaller profile picture */
+        height: 6rem; /* Even smaller profile picture */
+    }
+
+    .profile-info h2 {
+        font-size: 0.875rem; /* Smaller titles */
+    }
+
+    .profile-info p {
+        font-size: 0.875rem; /* Smaller text */
+    }
+
+    .edit-button {
+        font-size: 0.875rem; /* Smaller button text */
+        padding: 0.5rem 1rem; /* Adjusted button padding */
+    }
+}

@@ -1,0 +1,190 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #f9f9f9;
+}
+
+h1, h2 {
+    color: #333;
+}
+
+.logout-btn {
+    display: inline-block;
+    margin-bottom: 20px;
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.logout-btn:hover {
+    background-color: #0056b3;
+}
+
+button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Investor Dashboard */
+.filter-form {
+    margin-bottom: 20px;
+}
+
+.filter-form label {
+    display: block;
+    margin: 5px 0;
+}
+
+.filter-form input {
+    margin-bottom: 10px;
+    padding: 5px;
+    width: 100%;
+}
+
+.project-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.project-item {
+    background-color: #fff;
+    margin-bottom: 15px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.project-item h3 {
+    margin: 0;
+    color: #007BFF;
+}
+
+.project-item p {
+    margin: 5px 0;
+    color: #555;
+}
+
+.view-details-btn {
+    display: inline-block;
+    margin-top: 10px;
+    background-color: #28a745;
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.view-details-btn:hover {
+    background-color: #218838;
+}
+
+/* Staff Dashboard */
+.user-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.user-item {
+    background-color: #fff;
+    margin-bottom: 15px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.user-item h3 {
+    margin: 0;
+    color: #007BFF;
+}
+
+.user-item p {
+    margin: 5px 0;
+    color: #555;
+}
+
+.view-documents-btn {
+    display: inline-block;
+    margin-top: 10px;
+    background-color: #17a2b8;
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.view-documents-btn:hover {
+    background-color: #138496;
+}
+
+.action-form {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.approve-btn {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.approve-btn:hover {
+    background-color: #218838;
+}
+
+.reject-btn {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.reject-btn:hover {
+    background-color: #c82333;
+}
+
+/* Entrepreneur Dashboard */
+.create-project-form {
+    margin-bottom: 20px;
+}
+
+.create-project-form label {
+    display: block;
+    margin: 5px 0;
+}
+
+.create-project-form input, .create-project-form textarea {
+    margin-bottom: 10px;
+    padding: 5px;
+    width: 100%;
+}
+
+.edit-project-btn {
+    display: inline-block;
+    margin-top: 10px;
+    background-color: #ffc107;
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.edit-project-btn:hover {
+    background-color: #e0a800;
+}
+
