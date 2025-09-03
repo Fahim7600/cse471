@@ -44,7 +44,7 @@ app.use(express.json())
 // Middleware
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
-app.set('view engine', 'ejs');
+// Removed view engine setup - this is now a pure API server
 // app.use(session({
 //     secret: 'secretKey',
 //     resave: false,
@@ -94,7 +94,12 @@ app.get('/railway-status', (req, res) => {
 app.use('/', require('./routes/authRoutes'));
 
 app.get('/', (req, res) => {
-    res.render('index');
+    res.json({ 
+        message: 'Pet Adoption API is running!',
+        status: 'OK',
+        port: process.env.PORT || 3000,
+        timestamp: new Date().toISOString()
+    });
 });
 
 // adoption

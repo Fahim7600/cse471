@@ -3,9 +3,12 @@ const router = express.Router();
 const authController = require('../controllers/authRoutesController');
 
 
-// Signup Page
+// Signup Page - API endpoint
 router.get('/signup', (req, res) => {
-    res.render('signup');
+    res.json({ 
+        message: 'Signup endpoint - Use POST /signup to register',
+        status: 'OK'
+    });
 });
 // 
 // Signup Logic
@@ -16,9 +19,12 @@ router.post('/signup', authController.signup);
 
   
 
-// Login Page
+// Login Page - API endpoint
 router.get('/login', (req, res) => {
-    res.render('login');
+    res.json({ 
+        message: 'Login endpoint - Use POST /login to authenticate',
+        status: 'OK'
+    });
 });
 
 // Login Logic
