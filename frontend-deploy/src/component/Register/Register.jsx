@@ -22,7 +22,7 @@ const Register = () => {
         const password = form.get('password');
         const info = { name, email, password, role: userType }; // Create an object to send to the server
 
-        fetch('http://localhost:3000/signup', {
+        fetch('https://cse471-production.up.railway.app/signup', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

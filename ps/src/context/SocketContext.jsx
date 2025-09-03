@@ -16,7 +16,7 @@ export const SocketProvider = ({ children }) => {
     const [isConnected, setIsConnected] = useState(false);
 
     useEffect(() => {
-        const newSocket = io('http://localhost:3000', {
+        const newSocket = io('https://cse471-production.up.railway.app', {
             withCredentials: true,
             autoConnect: false
         });

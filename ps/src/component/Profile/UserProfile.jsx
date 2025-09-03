@@ -17,7 +17,7 @@ const UserProfile = () => {
             return;
         }
 
-        fetch(`http://localhost:3000/profile/${userInfo._id}`)
+        fetch(`https://cse471-production.up.railway.app/profile/${userInfo._id}`)
             .then((response) => response.json())
             .then((data) => {
                 setProfile(data);

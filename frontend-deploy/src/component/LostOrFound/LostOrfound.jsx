@@ -159,7 +159,7 @@ const LostOrFound = () => {
 
     const fetchLostPets = async () => {
         try {
-            const response = await fetch('http://localhost:3000/lost-pets', {
+            const response = await fetch('https://cse471-production.up.railway.app/lost-pets', {
                 credentials: 'include'
             });
             if (response.ok) {
@@ -173,7 +173,7 @@ const LostOrFound = () => {
 
     const handleMarkAsFound = async (reportId) => {
         try {
-            const response = await fetch(`http://localhost:3000/mark-found/${reportId}`, {
+            const response = await fetch(`https://cse471-production.up.railway.app/mark-found/${reportId}`, {
                 method: 'POST',
                 credentials: 'include'
             });
@@ -193,7 +193,7 @@ const LostOrFound = () => {
 
     const fetchComments = async (reportId) => {
         try {
-            const response = await fetch(`http://localhost:3000/reports/${reportId}/comments`, {
+            const response = await fetch(`https://cse471-production.up.railway.app/reports/${reportId}/comments`, {
                 credentials: 'include'
             });
             if (response.ok) {
@@ -207,7 +207,7 @@ const LostOrFound = () => {
 
     const handleAddComment = async (reportId, text) => {
         try {
-            const response = await fetch(`http://localhost:3000/reports/${reportId}/comments`, {
+            const response = await fetch(`https://cse471-production.up.railway.app/reports/${reportId}/comments`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

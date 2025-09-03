@@ -36,14 +36,14 @@ const PetDetails = () => {
         const fetchPetAndLostStatus = async () => {
             try {
                 // Fetch pet details
-                const petRes = await fetch(`http://localhost:3000/pets/${id}`, {
+                const petRes = await fetch(`https://cse471-production.up.railway.app/pets/${id}`, {
                     credentials: 'include'
                 });
                 const petData = await petRes.json();
                 setPet(petData);
 
                 // Check if pet is lost
-                const lostRes = await fetch(`http://localhost:3000/lost-pets`, {
+                const lostRes = await fetch(`https://cse471-production.up.railway.app/lost-pets`, {
                     credentials: 'include'
                 });
 
@@ -90,7 +90,7 @@ const PetDetails = () => {
     
     const handleLogWalkingData = async () => {
         try {
-            const response = await fetch(`http://localhost:3000/update-walking-data/${id}`, {
+            const response = await fetch(`https://cse471-production.up.railway.app/update-walking-data/${id}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -115,7 +115,7 @@ const PetDetails = () => {
 
     const handleResetWalkingData = async () => {
         try {
-            const response = await fetch(`http://localhost:3000/reset-walking-data/${id}`, {
+            const response = await fetch(`https://cse471-production.up.railway.app/reset-walking-data/${id}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -140,7 +140,7 @@ const PetDetails = () => {
 
     const handleLogMedicalData = async () => {
         try {
-            const response = await fetch(`http://localhost:3000/add-health-log/${id}`, {
+            const response = await fetch(`https://cse471-production.up.railway.app/add-health-log/${id}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -182,7 +182,7 @@ const PetDetails = () => {
 
         // Now submit the lost pet report with location
         try {
-            const res = await fetch(`http://localhost:3000/report-lost/${id}`, {
+            const res = await fetch(`https://cse471-production.up.railway.app/report-lost/${id}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -490,7 +490,7 @@ const PetDetails = () => {
                         <button
                                 onClick={async () => {
                                     try {
-                                        const res = await fetch(`http://localhost:3000/request-adoption/${id}`, {
+                                        const res = await fetch(`https://cse471-production.up.railway.app/request-adoption/${id}`, {
                                             method: 'POST',
                                             credentials: 'include',
                                         });
@@ -501,7 +501,7 @@ const PetDetails = () => {
                                         setIsInAdoptionList(data.inAdoptionList);
                                         
                                         // Refresh pet data to update the adoption status
-                                        const updatedPetRes = await fetch(`http://localhost:3000/pets/${id}`, {
+                                        const updatedPetRes = await fetch(`https://cse471-production.up.railway.app/pets/${id}`, {
                                             credentials: 'include'
                                         });
                                         const updatedPetData = await updatedPetRes.json();
@@ -562,7 +562,7 @@ const PetDetails = () => {
                                 onClick={async () => {
                                     if (window.confirm('Are you sure you want to remove this pet?')) {
                                         try {
-                                            const response = await fetch(`http://localhost:3000/delete-pet/${id}`, {
+                                            const response = await fetch(`https://cse471-production.up.railway.app/delete-pet/${id}`, {
                                                 method: 'DELETE',
                                                 credentials: 'include',
                                             });

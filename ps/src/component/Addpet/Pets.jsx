@@ -7,7 +7,7 @@ const Pets = () => {
     const [sortOption, setSortOption] = useState('');
 
     useEffect(() => {
-        fetch('http://localhost:3000/pets', {
+        fetch('https://cse471-production.up.railway.app/pets', {
             credentials: 'include',
         })
             .then(res => res.json())

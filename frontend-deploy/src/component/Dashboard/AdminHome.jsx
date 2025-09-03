@@ -22,7 +22,7 @@ const AdminHome = () => {
 
     const fetchStats = async () => {
         try {
-            const response = await fetch('http://localhost:3000/admin/metrics', {
+            const response = await fetch('https://cse471-production.up.railway.app/admin/metrics', {
                 credentials: 'include',
             });
             const data = await response.json();

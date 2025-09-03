@@ -20,7 +20,7 @@ const Vaccination = () => {
 
     useEffect(() => {
         // Fetch user's pets
-        fetch('http://localhost:3000/user-pets', {
+        fetch('https://cse471-production.up.railway.app/user-pets', {
             credentials: 'include'
         })
             .then(res => res.json())
@@ -78,7 +78,7 @@ const Vaccination = () => {
             return;
         }
 
-        fetch(`http://localhost:3000/add-vaccination/${selectedPetId}`, {
+        fetch(`https://cse471-production.up.railway.app/add-vaccination/${selectedPetId}`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(newVaccination),
@@ -111,7 +111,7 @@ const Vaccination = () => {
         }
 
         if (window.confirm('Are you sure you want to remove this vaccination record?')) {
-            fetch(`http://localhost:3000/delete-vaccination/${selectedPetId}/${vaccinationId}`, {
+            fetch(`https://cse471-production.up.railway.app/delete-vaccination/${selectedPetId}/${vaccinationId}`, {
                 method: 'DELETE',
                 credentials: 'include'
             })

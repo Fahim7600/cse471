@@ -42,7 +42,7 @@ const Users = () => {
     const fetchUsers = async () => {
         try {
             setLoading(true);
-            const response = await fetch('http://localhost:3000/users', {
+            const response = await fetch('https://cse471-production.up.railway.app/users', {
                 credentials: 'include'
             });
 
@@ -67,7 +67,7 @@ const Users = () => {
     // Handle ban/unban user action
     const handleBanUser = async (userId, isBanned) => {
         try {
-            const response = await fetch(`http://localhost:3000/users/${userId}/ban`, {
+            const response = await fetch(`https://cse471-production.up.railway.app/users/${userId}/ban`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

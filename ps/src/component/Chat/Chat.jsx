@@ -39,7 +39,7 @@ const Chat = () => {
                 setError(null);
                 
                 // Get current user info
-                const userResponse = await fetch('http://localhost:3000/user-info', {
+                const userResponse = await fetch('https://cse471-production.up.railway.app/user-info', {
                     credentials: 'include'
                 });
                 
@@ -57,7 +57,7 @@ const Chat = () => {
                     // This is a new chat - get pet info and set up for new chat
                     setIsNewChat(true);
                     
-                    const petResponse = await fetch(`http://localhost:3000/pets/${petId}`, {
+                    const petResponse = await fetch(`https://cse471-production.up.railway.app/pets/${petId}`, {
                         credentials: 'include'
                     });
                     
@@ -72,7 +72,7 @@ const Chat = () => {
                     setMessages([]); // No messages for new chat
                     
                     // Initialize socket for new chat
-                    const newSocket = io('http://localhost:3000', {
+                    const newSocket = io('https://cse471-production.up.railway.app', {
                         withCredentials: true,
                         timeout: 10000,
                         transports: ['websocket', 'polling']
@@ -139,7 +139,7 @@ const Chat = () => {
                     }
 
                     // Get chat by chatId
-                    const chatResponse = await fetch(`http://localhost:3000/api/chat/${chatId}`, {
+                    const chatResponse = await fetch(`https://cse471-production.up.railway.app/api/chat/${chatId}`, {
                         credentials: 'include'
                     });
                     
@@ -167,7 +167,7 @@ const Chat = () => {
                         } else {
                             // If petId is just an ID string, fetch the complete pet information
                             try {
-                                const petResponse = await fetch(`http://localhost:3000/pets/${chatData.chat.petId}`, {
+                                const petResponse = await fetch(`https://cse471-production.up.railway.app/pets/${chatData.chat.petId}`, {
                                     credentials: 'include'
                                 });
                                 if (petResponse.ok) {
@@ -185,7 +185,7 @@ const Chat = () => {
                     }
 
                     // Initialize socket with error handling
-                    const newSocket = io('http://localhost:3000', {
+                    const newSocket = io('https://cse471-production.up.railway.app', {
                         withCredentials: true,
                         timeout: 10000,
                         transports: ['websocket', 'polling']
@@ -302,7 +302,7 @@ const Chat = () => {
         try {
             if (isNewChat) {
                 // Create the chat when sending the first message
-                const response = await fetch(`http://localhost:3000/api/chat/pet/${petId}`, {
+                const response = await fetch(`https://cse471-production.up.railway.app/api/chat/pet/${petId}`, {
                     method: 'GET',
                     credentials: 'include'
                 });

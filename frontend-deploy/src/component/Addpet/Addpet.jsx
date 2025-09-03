@@ -81,7 +81,7 @@ const Addpet = () => {
         console.log(key + ':', value);
       }
 
-      const response = await fetch('http://localhost:3000/add-pet', {
+      const response = await fetch('https://cse471-production.up.railway.app/add-pet', {
         method: 'POST',
         body: formData,
         credentials: 'include', // Include cookies/session

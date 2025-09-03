@@ -16,7 +16,7 @@ const EditPetProfile = () => {
     const [uploadMethod, setUploadMethod] = useState('url'); // 'url' or 'file'
 
     useEffect(() => {
-        fetch(`http://localhost:3000/pets/${id}`)
+        fetch(`https://cse471-production.up.railway.app/pets/${id}`)
             .then(res => res.json())
             .then(data => {
                 setPet(data);
@@ -39,7 +39,7 @@ const EditPetProfile = () => {
             const formData = new FormData();
             formData.append('image', file);
 
-            fetch('http://localhost:3000/upload-pet-image', {
+            fetch('https://cse471-production.up.railway.app/upload-pet-image', {
                 method: 'POST',
                 body: formData,
                 credentials: 'include'
@@ -61,7 +61,7 @@ const EditPetProfile = () => {
     };
 
     const updatePetProfile = () => {
-        fetch(`http://localhost:3000/update-pet/${id}`, {
+        fetch(`https://cse471-production.up.railway.app/update-pet/${id}`, {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(pet),

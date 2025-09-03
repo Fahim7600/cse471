@@ -35,7 +35,7 @@ const Adoption = () => {
             });
             
             console.log('Fetching with params:', { searchTerm, ageSort });
-            const response = await fetch(`http://localhost:3000/available-adoptions?${queryParams}`, {
+            const response = await fetch(`https://cse471-production.up.railway.app/available-adoptions?${queryParams}`, {
                 credentials: 'include'
             });
             const data = await response.json();
@@ -185,7 +185,7 @@ const Adoption = () => {
                                             className="flex-1 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-medium py-2.5 px-4 rounded-xl transition-all duration-200 transform hover:scale-[1.02] focus:outline-none focus:ring-3 focus:ring-blue-300/50 text-sm"
                                             onClick={async () => {
                                                 try {
-                                                    const res = await fetch(`http://localhost:3000/request-pet-adoption/${pet._id}`, {
+                                                    const res = await fetch(`https://cse471-production.up.railway.app/request-pet-adoption/${pet._id}`, {
                                                         method: 'POST',
                                                         credentials: 'include',
                                                     });
@@ -226,7 +226,7 @@ const Adoption = () => {
                                                         onClick={async () => {
                                                             try {
                                                                 // Check if chat exists for this pet
-                                                                const chatResponse = await fetch(`http://localhost:3000/api/chat/check/${pet._id}`, {
+                                                                const chatResponse = await fetch(`https://cse471-production.up.railway.app/api/chat/check/${pet._id}`, {
                                                                     credentials: 'include'
                                                                 });
                                                                 

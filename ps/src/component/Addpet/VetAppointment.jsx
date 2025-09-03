@@ -21,7 +21,7 @@ const VetAppointment = () => {
 
     useEffect(() => {
         // Fetch user's pets
-        fetch('http://localhost:3000/user-pets', {
+        fetch('https://cse471-production.up.railway.app/user-pets', {
             credentials: 'include'
         })
             .then(res => res.json())
@@ -79,7 +79,7 @@ const VetAppointment = () => {
             return;
         }
 
-        fetch(`http://localhost:3000/add-vet-appointment/${selectedPetId}`, {
+        fetch(`https://cse471-production.up.railway.app/add-vet-appointment/${selectedPetId}`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(newAppointment),
@@ -112,7 +112,7 @@ const VetAppointment = () => {
         }
 
         if (window.confirm('Are you sure you want to cancel this appointment?')) {
-            fetch(`http://localhost:3000/delete-vet-appointment/${selectedPetId}/${appointmentId}`, {
+            fetch(`https://cse471-production.up.railway.app/delete-vet-appointment/${selectedPetId}/${appointmentId}`, {
                 method: 'DELETE',
                 credentials: 'include'
             })

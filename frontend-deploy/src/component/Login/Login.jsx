@@ -19,7 +19,7 @@ const Login = () => {
         const password = form.get('password');
 
         try {
-            const response = await fetch('http://localhost:3000/login', {
+            const response = await fetch('https://cse471-production.up.railway.app/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

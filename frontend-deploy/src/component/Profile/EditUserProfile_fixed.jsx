@@ -30,7 +30,7 @@ const EditUserProfile = () => {
             return;
         }
 
-        fetch(`http://localhost:3000/profile/${userInfo._id}`)
+        fetch(`https://cse471-production.up.railway.app/profile/${userInfo._id}`)
             .then((response) => response.json())
             .then((data) => {
                 setProfile({
@@ -75,7 +75,7 @@ const EditUserProfile = () => {
 
     const handleSaveProfile = async () => {
         try {
-            const response = await fetch(`http://localhost:3000/update-profile/${userInfo._id}`, {
+            const response = await fetch(`https://cse471-production.up.railway.app/update-profile/${userInfo._id}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',

@@ -13,7 +13,7 @@ const Notification = () => {
     const fetchNotifications = async () => {
         setIsLoading(true);
         try {
-            const response = await fetch('http://localhost:3000/api/notifications', {
+            const response = await fetch('https://cse471-production.up.railway.app/api/notifications', {
                 method: 'GET',
                 credentials: 'include'
             });
@@ -40,7 +40,7 @@ const Notification = () => {
 
     const markAsRead = async (notificationId) => {
         try {
-            const response = await fetch(`http://localhost:3000/api/notifications/${notificationId}`, {
+            const response = await fetch(`https://cse471-production.up.railway.app/api/notifications/${notificationId}`, {
                 method: 'PATCH',
                 credentials: 'include'
             });
@@ -57,7 +57,7 @@ const Notification = () => {
 
     const deleteNotification = async (notificationId) => {
         try {
-            const response = await fetch(`http://localhost:3000/api/notifications/${notificationId}`, {
+            const response = await fetch(`https://cse471-production.up.railway.app/api/notifications/${notificationId}`, {
                 method: 'DELETE',
                 credentials: 'include'
             });

@@ -21,7 +21,7 @@ const UserHome = () => {
     // Fetch adoption requests
     const fetchAdoptionRequests = async () => {
         try {
-            const response = await fetch('http://localhost:3000/owner-adoption-requests', {
+            const response = await fetch('https://cse471-production.up.railway.app/owner-adoption-requests', {
                 method: 'GET',
                 credentials: 'include',
                 headers: {
@@ -41,7 +41,7 @@ const UserHome = () => {
     // Fetch adoption limit status
     const fetchAdoptionLimitStatus = async () => {
         try {
-            const response = await fetch('http://localhost:3000/adoption-limit-status', {
+            const response = await fetch('https://cse471-production.up.railway.app/adoption-limit-status', {
                 method: 'GET',
                 credentials: 'include',
                 headers: {
@@ -62,7 +62,7 @@ const UserHome = () => {
     // Handle adoption request approval/rejection
     const handleAdoptionRequest = async (requestId, status) => {
         try {
-            const response = await fetch(`http://localhost:3000/review-adoption/${requestId}`, {
+            const response = await fetch(`https://cse471-production.up.railway.app/review-adoption/${requestId}`, {
                 method: 'POST',
                 credentials: 'include',
                 headers: {
@@ -93,7 +93,7 @@ const UserHome = () => {
                 setLoading(true);
                 setError(null);
                 
-                const response = await fetch('http://localhost:3000/pets', {
+                const response = await fetch('https://cse471-production.up.railway.app/pets', {
                     method: 'GET',
                     credentials: 'include',
                     headers: {

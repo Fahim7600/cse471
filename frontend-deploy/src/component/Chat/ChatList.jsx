@@ -14,7 +14,7 @@ const ChatList = () => {
 
     const fetchChats = async () => {
         try {
-            const response = await fetch('http://localhost:3000/api/chats', {
+            const response = await fetch('https://cse471-production.up.railway.app/api/chats', {
                 credentials: 'include'
             });
             

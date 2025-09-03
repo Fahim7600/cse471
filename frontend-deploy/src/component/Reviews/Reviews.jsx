@@ -25,7 +25,7 @@ const Reviews = () => {
         try {
             setLoading(true);
             setError(null);
-            const response = await axios.get('http://localhost:3000/api/reviews', { 
+            const response = await axios.get('https://cse471-production.up.railway.app/api/reviews', { 
                 withCredentials: true 
             });
             setReviews(response.data);
@@ -49,7 +49,7 @@ const Reviews = () => {
             setError(null);
             if (editingReview) {
                 const response = await axios.put(
-                    `http://localhost:3000/api/reviews/${editingReview._id}`,
+                    `https://cse471-production.up.railway.app/api/reviews/${editingReview._id}`,
                     newReview,
                     { 
                         withCredentials: true,
@@ -64,7 +64,7 @@ const Reviews = () => {
                 setEditingReview(null);
             } else {
                 const response = await axios.post(
-                    'http://localhost:3000/api/reviews',
+                    'https://cse471-production.up.railway.app/api/reviews',
                     newReview,
                     { 
                         withCredentials: true,
@@ -96,7 +96,7 @@ const Reviews = () => {
         
         try {
             setLoading(true);
-            await axios.delete(`http://localhost:3000/api/reviews/${reviewId}`, {
+            await axios.delete(`https://cse471-production.up.railway.app/api/reviews/${reviewId}`, {
                 withCredentials: true
             });
             setReviews(prevReviews => prevReviews.filter(review => review._id !== reviewId));
